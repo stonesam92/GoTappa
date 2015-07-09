@@ -23,7 +23,7 @@
 }
 
 - (void)showLicense {
-    NSURL *url = [NSURL URLWithString:@"http://github.com/stonesam92/LICENSE.md"];
+    NSURL *url = [NSURL URLWithString:@"http://github.com/stonesam92/blob/master/LICENSE.md"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
