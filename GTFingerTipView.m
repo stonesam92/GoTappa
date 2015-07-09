@@ -14,6 +14,8 @@
 }
 
 - (instancetype)init {
-    return [super initWithImage:[GTFingerTipView image]];
+    self = [super initWithImage:[GTFingerTipView image]];
+    self.alpha = 0.9;
+    return self;
 }
 @end
