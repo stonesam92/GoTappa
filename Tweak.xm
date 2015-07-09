@@ -153,6 +153,8 @@ static BOOL enabled;
         
     [UIView setAnimationsEnabled:YES];
     [UIView animateWithDuration:FADE_DURATION
+                          delay:0.1
+                        options:0
                      animations:^{
                             touchView.frame = CGRectMake(
                                     touchView.center.x - touchView.frame.size.width * 1.2 / 2, 
@@ -162,7 +164,7 @@ static BOOL enabled;
                             
                             touchView.alpha = 0.0;
                          }
-                    completion:^(BOOL finished){
+                     completion:^(BOOL finished){
                         [UIView setAnimationsEnabled:animationsWereEnabled];
                         touchView.fadingOut = YES;
                         [touchView removeFromSuperview];
