@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.samstone.gotappa</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Changes take effect on respring.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>key</key>
+			<string>respring</string>
+			<key>label</key>
+			<string>Respring Now</string>
+            <key>action</key>
+            <string>respring</string>
+            <key>confirmation</key>
+            <dict>
+                <key>prompt</key>
+                <string>Respring Now?</string>
+                <key>title</key>
+                <string>Confirm</string>
+                <key>okTitle</key>
+                <string>Yes</string>
+                <key>cancelTitle</key>
+                <string>Cancel</string>
+            </dict>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Links</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>key</key>
+			<string>twitter</string>
+			<key>label</key>
+			<string>Author's Twitter</string>
+            <key>action</key>
+            <string>showTwitter</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>key</key>
+			<string>github</string>
+			<key>label</key>
+			<string>GoTappa Source Code</string>
+            <key>action</key>
+            <string>showGitHub</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>key</key>
+			<string>license</string>
+			<key>label</key>
+			<string>Show License</string>
+            <key>action</key>
+            <string>showLicense</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>GoTappa</string>
+    <key>icon</key>
+    <string>GoTappaSettings</string>
+</dict>
+</plist>

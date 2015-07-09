@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = GoTappaPrefs;
+	cell = PSLinkCell;
+	detail = GoTappaPrefsListController;
+	icon = GoTappaSettings.png;
+	isController = 1;
+	label = GoTappa;
+    };
+}
