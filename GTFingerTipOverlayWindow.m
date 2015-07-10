@@ -11,7 +11,7 @@
     NSLog(@"entering getrootView");
     for (UIWindow *window in [[UIApplication sharedApplication] windows])
     {
-        if (self == window)
+        if (self == window || ![window isKeyWindow])
             continue;
 
         UIViewController *realRootViewController = window.rootViewController;

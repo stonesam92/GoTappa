@@ -6,7 +6,6 @@
 #define PREFS_LOCATION @"/var/mobile/Library/Preferences/com.samstone.gotappa.plist"
 
 static BOOL fingerTipRemovalScheduled;
-static BOOL enabled;
 
 @interface UIWindow ()
 - (UIWindow *)overlayWindow;
@@ -17,14 +16,7 @@ static BOOL enabled;
 - (BOOL)shouldAutomaticallyRemoveFingerTipForTouch:(UITouch *)touch;
 @end
 
-%ctor {
-    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:PREFS_LOCATION];
-    NSLog(@"prefs: %@", prefs);
-    if (!prefs || [prefs[@"enabled"] boolValue])
-        enabled = YES;
-    else
-        enabled = NO;
-}
+%group MainGroup
 
 %hook UIWindow
 %new
@@ -48,9 +40,6 @@ static BOOL enabled;
 
 - (void)sendEvent:(UIEvent *)event
 {
-    if (!enabled)
-        return %orig;
-
     NSSet *allTouches = [event allTouches];
     
     for (UITouch *touch in [allTouches allObjects])
@@ -196,3 +185,17 @@ static BOOL enabled;
     return NO;
 }
 %end
+
+%end
+
+%ctor {
+    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:PREFS_LOCATION];
+    NSString *bundleID = [NSBundle mainBundle].bundleIdentifier;
+    NSLog(@"running in %@", bundleID);
+    if (!prefs || (
+                [prefs[@"enabled"] boolValue] &&
+                ![bundleID isEqualToString:@"com.apple.camera"])) {
+        %init(MainGroup);
+    } 
+}
+
