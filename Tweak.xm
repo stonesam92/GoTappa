@@ -52,13 +52,13 @@ static BOOL fingerTipRemovalScheduled;
             {
                 GTFingerTipView *touchView = (GTFingerTipView *)[[self overlayWindow] viewWithTag:touch.hash];
 
-                if (touch.phase != UITouchPhaseStationary && touchView != nil && [touchView isFadingOut])
+                if (touchView && [touchView isFadingOut])
                 {
                     [touchView removeFromSuperview];
                     touchView = nil;
                 }
                 
-                if (touchView == nil && touch.phase != UITouchPhaseStationary)
+                if (!touchView)
                 {
                     touchView = [[GTFingerTipView alloc] init];
                     [[self overlayWindow] addSubview:touchView];
